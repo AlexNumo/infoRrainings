@@ -19,18 +19,20 @@ const BTN = styled.button`
   font-family: 'Times New Roman', Times, serif;
   font-size: 8px;
   font-weight: 400;
-  width: 60px;
+  width: 50px;
   height: 30px;
   margin: 1px;
   padding: 1px;
   color: black;
+  border-radius: 12px;
+  background-color: #ced6de;
 `;
 
 const Days = styled.span`
   font-family: 'Times New Roman', Times, serif;
   font-size: 8px;
   font-weight: 400;
-  width: 60px;
+  width: 52px;
   text-align: center;
   /* color: inherit; */
 `;
