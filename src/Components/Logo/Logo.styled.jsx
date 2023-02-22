@@ -6,7 +6,6 @@ const LogoPosition = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 10px;
-  width: 600px;
 `;
 
 const LogoStudio = styled.p`
