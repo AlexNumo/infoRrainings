@@ -55,7 +55,7 @@ const SortingFirstRender = ({
   const dateOfToday = moment().add(0, 'days').format('L');
   const dateOfNextDay = moment().add(1, 'days').format('L');
   const dateOfNextDay1 = moment().add(2, 'days').format('L');
-  // console.log(clientsNextDayTwo1400);
+  // console.log(clientsNextDay0900);
   return(
     <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
 {/* ===========================ToDay======================================================================================== */}
@@ -77,7 +77,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -91,7 +91,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday0900 ? clientsToday0900.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -102,7 +102,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -116,7 +116,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1000 ? clientsToday1000.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -127,7 +127,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -141,7 +141,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1100 ? clientsToday1100.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -152,7 +152,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -166,7 +166,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1200 ? clientsToday1200.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -177,7 +177,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -202,7 +202,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -216,7 +216,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1400 ? clientsToday1400.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -227,7 +227,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -241,7 +241,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1500 ? clientsToday1500.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -252,7 +252,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -266,7 +266,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1600 ? clientsToday1600.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -277,7 +277,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -291,7 +291,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1700 ? clientsToday1700.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -302,7 +302,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -327,7 +327,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -341,7 +341,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday1900 ? clientsToday1900.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -352,7 +352,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -366,7 +366,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsToday2000 ? clientsToday2000.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -377,7 +377,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -395,7 +395,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay0800 ? clientsNextDay0800.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -406,7 +406,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -431,7 +431,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -445,7 +445,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1000 ? clientsNextDay1000.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -456,7 +456,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -470,7 +470,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1100 ? clientsNextDay1100.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -481,7 +481,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -495,7 +495,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1200 ? clientsNextDay1200.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -506,7 +506,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -520,7 +520,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1300 ? clientsNextDay1300.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -531,7 +531,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -545,7 +545,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1400 ? clientsNextDay1400.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -556,7 +556,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -570,7 +570,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1500 ? clientsNextDay1500.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -581,7 +581,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -595,7 +595,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1600 ? clientsNextDay1600.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -606,7 +606,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -620,7 +620,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1700 ? clientsNextDay1700.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -631,7 +631,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -645,7 +645,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1800 ? clientsNextDay1800.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -656,7 +656,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -670,7 +670,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay1900 ? clientsNextDay1900.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -681,7 +681,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -695,7 +695,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDay2000 ? clientsNextDay2000.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -706,7 +706,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -724,7 +724,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo0800 ? clientsNextDayTwo0800.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -735,7 +735,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -749,7 +749,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo0900 ? clientsNextDayTwo0900.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -760,7 +760,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -774,7 +774,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1000 ? clientsNextDayTwo1000.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -785,7 +785,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -799,7 +799,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1100 ? clientsNextDayTwo1100.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -810,7 +810,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -824,7 +824,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1200 ? clientsNextDayTwo1200.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -835,7 +835,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -849,7 +849,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1300 ? clientsNextDayTwo1300.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -860,7 +860,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -874,7 +874,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1400 ? clientsNextDayTwo1400.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -885,7 +885,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -899,7 +899,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1500 ? clientsNextDayTwo1500.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -910,7 +910,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -924,7 +924,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1600 ? clientsNextDayTwo1600.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -935,7 +935,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -949,7 +949,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1700 ? clientsNextDayTwo1700.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -960,7 +960,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -974,7 +974,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1800 ? clientsNextDayTwo1800.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -985,7 +985,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -999,7 +999,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo1900 ? clientsNextDayTwo1900.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -1010,7 +1010,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />
@@ -1024,7 +1024,7 @@ const SortingFirstRender = ({
           <ol start={1} type={1} style={{ marginLeft: '10px' }}>
             {clientsNextDayTwo2000 ? clientsNextDayTwo2000.map((item) => (
               <Clients key={item._id}>
-                {item.visitTrainee ?
+                                {item.visitTrainee ?
                   <>
                     <HandleVisitTraineeYES item={item} />
                     <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
@@ -1035,7 +1035,7 @@ const SortingFirstRender = ({
                   :
                   <>
                     <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeNO'>
+                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
                       {item.name}
                     </a>
                     <HandleVisitTraineeNO item={item} />

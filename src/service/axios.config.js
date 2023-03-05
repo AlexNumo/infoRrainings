@@ -23,14 +23,8 @@ export const sendDataUsers = async ({ id, info }) => {
       toast.error('Щось пішло не так');
   }
 };
-
-export const sendVisitTrainee = async (id, status) => {
+export const canceledTraining = async (id, status) => {
   try {
-    if (status.status === true) {
-      const res = await instance.put(`/tgbot/visit`, { id, status });
-      toast.success(`Підтверджено заняття для клієнта "${res.data.info[0].name}"`)
-    return res;
-    }
     if (status.status === false) {
       const res = await instance.put(`/tgbot/visit`, { id, status });
       toast.success(`Скасовано заняття для клієнта "${res.data.info[0].name}"`)
@@ -41,6 +35,18 @@ export const sendVisitTrainee = async (id, status) => {
     console.error(e.message);
   }
 };
+
+export const sendSeasonTicketVisitTrainee = async (id) => {
+  try {
+      const res = await instance.put(`/tgbot/changeSeasonTicket`,  id );
+      toast.success(`Підтвердженео заняття для клієнта "${res.data.info[0].name}"`);
+    return res;
+  } catch (e) {
+    toast.error('Щось пішло не так');
+    console.error(e.message);
+  }
+};
+
 
 export const deleteDataUsers = async (id) => {
   try {
@@ -74,7 +80,8 @@ const sendTgRecord = async ({id, day_translate, clientName, kind_trainee, time, 
 export const clientAPI = {
   getDataALL,
   sendDataUsers,
-  sendVisitTrainee,
+  canceledTraining,
+  sendSeasonTicketVisitTrainee,
   deleteDataUsers,
   getDataALLUsers,
   sendTgRecord
