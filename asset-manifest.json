@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/info-for-coach/static/css/main.b3eeeea7.css",
-    "main.js": "/info-for-coach/static/js/main.8312100d.js",
-    "MainPage.js": "/info-for-coach/static/js/MainPage.3953f239.chunk.js",
+    "main.js": "/info-for-coach/static/js/main.c75ba29f.js",
+    "MainPage.js": "/info-for-coach/static/js/MainPage.93761a1c.chunk.js",
     "static/js/451.b467b45d.chunk.js": "/info-for-coach/static/js/451.b467b45d.chunk.js",
     "index.html": "/info-for-coach/index.html",
     "main.b3eeeea7.css.map": "/info-for-coach/static/css/main.b3eeeea7.css.map",
-    "main.8312100d.js.map": "/info-for-coach/static/js/main.8312100d.js.map",
-    "MainPage.3953f239.chunk.js.map": "/info-for-coach/static/js/MainPage.3953f239.chunk.js.map",
+    "main.c75ba29f.js.map": "/info-for-coach/static/js/main.c75ba29f.js.map",
+    "MainPage.93761a1c.chunk.js.map": "/info-for-coach/static/js/MainPage.93761a1c.chunk.js.map",
     "451.b467b45d.chunk.js.map": "/info-for-coach/static/js/451.b467b45d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3eeeea7.css",
-    "static/js/main.8312100d.js"
+    "static/js/main.c75ba29f.js"
   ]
 }
