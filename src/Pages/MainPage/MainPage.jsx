@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TGBot from 'Pages/TGBot/TGBot';
+// import TGBot from 'Pages/TGBot/TGBot';
 import Record from 'Pages/Record/Record';
 import Logo from 'Components/Logo/Logo';
 
@@ -41,9 +41,12 @@ const MainPage = () => {
         <BTN type='button' onClick={ShowInfoRecordHandle} className={showInfoRecord ? 'active' : ''}>ЗАПИСИ</BTN>
         <BTN type='button' onClick={ShowTGBotTrainee} className={showTGBot ? 'active' : ''}>Telegram BOT</BTN>
       </WrapperStyle>
-      <Logo/>
+      {showTGBot ? null : <Logo />}
       {showInfoRecord ? <Record/> : null}
-      {showTGBot ? <TGBot/> : null}
+      {showTGBot ?
+        <>
+        <iframe title='tgbot' src="https://alexnumo.github.io/tg-bot/" frameBorder="0" width='100%' height='450px'/></>
+        : null}
     </Wrapper>
   )
 };

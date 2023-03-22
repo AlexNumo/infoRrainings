@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const WrapperBTN = styled.p`
+const WrapperBTN = styled.div`
   position: sticky;
   top: 80px;
   height: auto;
   background-color: #ddd2c5;
   text-align: center;
-  width: 35px;
+  width: 100%;
 `;
 
 const WrapperInfoTime = styled.div`
@@ -18,7 +18,7 @@ const WrapperInfoTime = styled.div`
   border-radius: 3px;
   margin-top: 2px;
   margin-bottom: 2px;
-  /* padding: 2px; */
+  padding: 2px;
   /* width: 90px; */
   height: 200px;
 `;
@@ -49,7 +49,7 @@ const NextDaysBTN = styled.button`
   font-weight: 400;
   font-size: 13px;
   padding-top: 7px;
-  padding-bottom: 7px;
+  padding-bottom: 8px;
 `
 
 export {

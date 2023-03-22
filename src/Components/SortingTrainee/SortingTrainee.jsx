@@ -252,7 +252,7 @@ const SortingTrainee = () => {
             const clientBase = [client1]
             setClientsToday0900(clientBase);
           };
-          if (dataClientToday0900.length === 2) {
+        if (dataClientToday0900.length === 2) {
             const client1 = dataClientToday0900[0].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '09:00' && value.date.slice(0, 10) === dateToday; });
             const client2 = dataClientToday0900[1].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '09:00' && value.date.slice(0, 10) === dateToday; });
             const clientBase = [client1, client2]
@@ -1320,6 +1320,21 @@ const SortingTrainee = () => {
             const client9 = dataClientToday1900[8].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
             const client10 = dataClientToday1900[9].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
             const clientBase = [client1, client2, client3, client4, client5, client6, client7, client8, client9, client10]
+            setClientsToday1900(clientBase);
+        };
+          if (dataClientToday1900.length === 11) {
+            const client1 = dataClientToday1900[0].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client2 = dataClientToday1900[1].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client3 = dataClientToday1900[2].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client4 = dataClientToday1900[3].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client5 = dataClientToday1900[4].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client6 = dataClientToday1900[5].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client7 = dataClientToday1900[6].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client8 = dataClientToday1900[7].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client9 = dataClientToday1900[8].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client10 = dataClientToday1900[9].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const client11 = dataClientToday1900[10].info.find((value) => { return value.day === dayOfWeekToday.toLocaleLowerCase() && value.time === '19:00' && value.date.slice(0, 10) === dateToday; });
+            const clientBase = [client1, client2, client3, client4, client5, client6, client7, client8, client9, client10, client11]
             setClientsToday1900(clientBase);
         };
         if (dataClientToday2000.length === '') {
@@ -9346,7 +9361,16 @@ const SortingTrainee = () => {
     }
     setContinueView(true);
   };
-  // console.log("clientsNextDayTwo1400: ", clientsNextDayTwo1400)
+
+  const calculateHeight = (...clientCounts) => {
+    const baseHeight = 45; // базова висота для одного клієнта
+    const minHeight = 50; // мінімальна висота
+    const maxHeight = 500; // максимальна висота
+    const maxClients = Math.max(...clientCounts); // вибираємо максимальну кількість клієнтів
+    const height = baseHeight * maxClients; // висота в залежності від кількості клієнтів
+    const cappedHeight = Math.max(minHeight, Math.min(height, maxHeight)); // обмежуємо висоту від мінімальної до максимальної
+  return `${cappedHeight}px`; // додаємо "px" для встановлення висоти в CSS
+};
 
   return(
     <div
@@ -9363,24 +9387,91 @@ const SortingTrainee = () => {
         <WrapperBTN>
           <NextDaysBTN onClick={ContinueBTN}>Back</NextDaysBTN>
         </WrapperBTN>}
-        <WrapperInfoTime><p>8:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>9:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>10:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>11:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>12:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>13:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>14:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>15:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>16:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>17:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>18:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>19:00</p></WrapperInfoTime>
-        <WrapperInfoTime><p>20:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday0800.length, clientsNextDay0800.length, clientsNextDayTwo0800.length, clientsNextDayThree0800.length,
+            clientsNextDayFour0800.length, clientsNextDayFive0800.length, clientsNextDaySix0800.length
+          )
+        }}><p>8:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday0900.length, clientsNextDay0900.length, clientsNextDayTwo0900.length, clientsNextDayThree0900.length,
+            clientsNextDayFour0900.length, clientsNextDayFive0900.length, clientsNextDaySix0900.length
+          )
+        }}><p>9:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1000.length, clientsNextDay1000.length, clientsNextDayTwo1000.length, clientsNextDayThree1000.length,
+            clientsNextDayFour1000.length, clientsNextDayFive1000.length, clientsNextDaySix1000.length
+          )
+        }}><p>10:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1100.length, clientsNextDay1100.length, clientsNextDayTwo1100.length, clientsNextDayThree1100.length,
+            clientsNextDayFour1100.length, clientsNextDayFive1100.length, clientsNextDaySix1100.length
+          )
+        }}><p>11:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1200.length, clientsNextDay1200.length, clientsNextDayTwo1200.length, clientsNextDayThree1200.length,
+            clientsNextDayFour1200.length, clientsNextDayFive1200.length, clientsNextDaySix1200.length
+          )
+        }}><p>12:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1300.length, clientsNextDay1300.length, clientsNextDayTwo1300.length, clientsNextDayThree1300.length,
+            clientsNextDayFour1300.length, clientsNextDayFive1300.length, clientsNextDaySix1300.length
+          )
+        }}><p>13:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1400.length, clientsNextDay1400.length, clientsNextDayTwo1400.length, clientsNextDayThree1400.length,
+            clientsNextDayFour1400.length, clientsNextDayFive1400.length, clientsNextDaySix1400.length
+          )
+        }}><p>14:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1500.length, clientsNextDay1500.length, clientsNextDayTwo1500.length, clientsNextDayThree1500.length,
+            clientsNextDayFour1500.length, clientsNextDayFive1500.length, clientsNextDaySix1500.length
+          )
+        }}><p>15:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1600.length, clientsNextDay1600.length, clientsNextDayTwo1600.length, clientsNextDayThree1600.length,
+            clientsNextDayFour1600.length, clientsNextDayFive1600.length, clientsNextDaySix1600.length
+          )
+        }}><p>16:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1700.length, clientsNextDay1700.length, clientsNextDayTwo1700.length, clientsNextDayThree1700.length,
+            clientsNextDayFour1700.length, clientsNextDayFive1700.length, clientsNextDaySix1700.length
+          )
+        }}><p>17:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1800.length, clientsNextDay1800.length, clientsNextDayTwo1800.length, clientsNextDayThree1800.length,
+            clientsNextDayFour1800.length, clientsNextDayFive1800.length, clientsNextDaySix1800.length
+          )
+        }}><p>18:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday1900.length, clientsNextDay1900.length, clientsNextDayTwo1900.length, clientsNextDayThree1900.length,
+            clientsNextDayFour1900.length, clientsNextDayFive1900.length, clientsNextDaySix1900.length
+          )
+        }}><p>19:00</p></WrapperInfoTime>
+        <WrapperInfoTime style={{
+          height: calculateHeight(
+            clientsToday2000.length, clientsNextDay2000.length, clientsNextDayTwo2000.length, clientsNextDayThree2000.length,
+            clientsNextDayFour2000.length, clientsNextDayFive2000.length, clientsNextDaySix2000.length
+          )
+        }}><p>20:00</p></WrapperInfoTime>
+
       </div>
       
       {continueView ?
         <>
           <SortingFirstRender
+            calculateHeight={calculateHeight}
             URLInsta={URLInsta}
             clientsToday0800={clientsToday0800}
             clientsToday0900={clientsToday0900}
@@ -9421,6 +9512,58 @@ const SortingTrainee = () => {
             clientsNextDayTwo1800={clientsNextDayTwo1800}
             clientsNextDayTwo1900={clientsNextDayTwo1900}
             clientsNextDayTwo2000={clientsNextDayTwo2000}
+            clientsNextDayThree0800={clientsNextDayThree0800}
+            clientsNextDayThree0900={clientsNextDayThree0900}
+            clientsNextDayThree1000={clientsNextDayThree1000}
+            clientsNextDayThree1100={clientsNextDayThree1100}
+            clientsNextDayThree1200={clientsNextDayThree1200}
+            clientsNextDayThree1300={clientsNextDayThree1300}
+            clientsNextDayThree1400={clientsNextDayThree1400}
+            clientsNextDayThree1500={clientsNextDayThree1500}
+            clientsNextDayThree1600={clientsNextDayThree1600}
+            clientsNextDayThree1700={clientsNextDayThree1700}
+            clientsNextDayThree1800={clientsNextDayThree1800}
+            clientsNextDayThree1900={clientsNextDayThree1900}
+            clientsNextDayThree2000={clientsNextDayThree2000}
+            clientsNextDayFour0800={clientsNextDayFour0800}
+            clientsNextDayFour0900={clientsNextDayFour0900}
+            clientsNextDayFour1000={clientsNextDayFour1000}
+            clientsNextDayFour1100={clientsNextDayFour1100}
+            clientsNextDayFour1200={clientsNextDayFour1200}
+            clientsNextDayFour1300={clientsNextDayFour1300}
+            clientsNextDayFour1400={clientsNextDayFour1400}
+            clientsNextDayFour1500={clientsNextDayFour1500}
+            clientsNextDayFour1600={clientsNextDayFour1600}
+            clientsNextDayFour1700={clientsNextDayFour1700}
+            clientsNextDayFour1800={clientsNextDayFour1800}
+            clientsNextDayFour1900={clientsNextDayFour1900}
+            clientsNextDayFour2000={clientsNextDayFour2000}
+            clientsNextDayFive0800={clientsNextDayFive0800}
+            clientsNextDayFive0900={clientsNextDayFive0900}
+            clientsNextDayFive1000={clientsNextDayFive1000}
+            clientsNextDayFive1100={clientsNextDayFive1100}
+            clientsNextDayFive1200={clientsNextDayFive1200}
+            clientsNextDayFive1300={clientsNextDayFive1300}
+            clientsNextDayFive1400={clientsNextDayFive1400}
+            clientsNextDayFive1500={clientsNextDayFive1500}
+            clientsNextDayFive1600={clientsNextDayFive1600}
+            clientsNextDayFive1700={clientsNextDayFive1700}
+            clientsNextDayFive1800={clientsNextDayFive1800}
+            clientsNextDayFive1900={clientsNextDayFive1900}
+            clientsNextDayFive2000={clientsNextDayFive2000}
+            clientsNextDaySix0800={clientsNextDaySix0800}
+            clientsNextDaySix0900={clientsNextDaySix0900}
+            clientsNextDaySix1000={clientsNextDaySix1000}
+            clientsNextDaySix1100={clientsNextDaySix1100}
+            clientsNextDaySix1200={clientsNextDaySix1200}
+            clientsNextDaySix1300={clientsNextDaySix1300}
+            clientsNextDaySix1400={clientsNextDaySix1400}
+            clientsNextDaySix1500={clientsNextDaySix1500}
+            clientsNextDaySix1600={clientsNextDaySix1600}
+            clientsNextDaySix1700={clientsNextDaySix1700}
+            clientsNextDaySix1800={clientsNextDaySix1800}
+            clientsNextDaySix1900={clientsNextDaySix1900}
+            clientsNextDaySix2000={clientsNextDaySix2000}
             today={today}
             nextDay={nextDay}
             nextDay1={nextDay1}
@@ -9429,7 +9572,47 @@ const SortingTrainee = () => {
         :
         <>
           <SortingSecondRender
+            calculateHeight={calculateHeight}
             URLInsta={URLInsta}
+            clientsToday0800={clientsToday0800}
+            clientsToday0900={clientsToday0900}
+            clientsToday1000={clientsToday1000}
+            clientsToday1100={clientsToday1100}
+            clientsToday1200={clientsToday1200}
+            clientsToday1300={clientsToday1300}
+            clientsToday1400={clientsToday1400}
+            clientsToday1500={clientsToday1500}
+            clientsToday1600={clientsToday1600}
+            clientsToday1700={clientsToday1700}
+            clientsToday1800={clientsToday1800}
+            clientsToday1900={clientsToday1900}
+            clientsToday2000={clientsToday2000}
+            clientsNextDay0800={clientsNextDay0800}
+            clientsNextDay0900={clientsNextDay0900}
+            clientsNextDay1000={clientsNextDay1000}
+            clientsNextDay1100={clientsNextDay1100}
+            clientsNextDay1200={clientsNextDay1200}
+            clientsNextDay1300={clientsNextDay1300}
+            clientsNextDay1400={clientsNextDay1400}
+            clientsNextDay1500={clientsNextDay1500}
+            clientsNextDay1600={clientsNextDay1600}
+            clientsNextDay1700={clientsNextDay1700}
+            clientsNextDay1800={clientsNextDay1800}
+            clientsNextDay1900={clientsNextDay1900}
+            clientsNextDay2000={clientsNextDay2000}
+            clientsNextDayTwo0800={clientsNextDayTwo0800}
+            clientsNextDayTwo0900={clientsNextDayTwo0900}
+            clientsNextDayTwo1000={clientsNextDayTwo1000}
+            clientsNextDayTwo1100={clientsNextDayTwo1100}
+            clientsNextDayTwo1200={clientsNextDayTwo1200}
+            clientsNextDayTwo1300={clientsNextDayTwo1300}
+            clientsNextDayTwo1400={clientsNextDayTwo1400}
+            clientsNextDayTwo1500={clientsNextDayTwo1500}
+            clientsNextDayTwo1600={clientsNextDayTwo1600}
+            clientsNextDayTwo1700={clientsNextDayTwo1700}
+            clientsNextDayTwo1800={clientsNextDayTwo1800}
+            clientsNextDayTwo1900={clientsNextDayTwo1900}
+            clientsNextDayTwo2000={clientsNextDayTwo2000}
             clientsNextDayThree0800={clientsNextDayThree0800}
             clientsNextDayThree0900={clientsNextDayThree0900}
             clientsNextDayThree1000={clientsNextDayThree1000}

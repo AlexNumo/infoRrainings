@@ -6,16 +6,25 @@ import { clientAPI } from "service/axios.config";
 const HandleVisitTraineeYES = ({ item }) => {
   const HandleVisitTraineeYesAPI = async (e) => {
     e.preventDefault(e);
-    // console.log(item)
+    const visitTrainingsInfo = {
+      idTraining: item._id,
+      day: item.day,
+      time: item.time,
+      kind_trainee: item.kind_trainee,
+      date: item.date,
+      coach: item.coach,
+    };
     const value = item._id;
     const send = { _id: value };
     const statusYES = { status: true };
     const onClickBTN = document.getElementById(`${value}`);
+    await clientAPI.sendVisitTrainingInfoSeasonTickets(visitTrainingsInfo);
     await clientAPI.sendSeasonTicketVisitTrainee(send, statusYES).then(() => {
       onClickBTN.classList.add('visitTraineeYES')
       onClickBTN.classList.remove('visitTraineeNO')
   });
-};
+  };
+
   return (
     <>
       <VisitBTN type="button" onClick={HandleVisitTraineeYesAPI}><FcCheckmark/></VisitBTN>

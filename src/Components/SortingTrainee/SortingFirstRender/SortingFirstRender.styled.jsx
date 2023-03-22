@@ -19,7 +19,7 @@ const WrapperInfoTime = styled.div`
   margin-bottom: 2px;
   padding: 2px;
   width: 90px;
-  height: 200px;
+  /* height: 200px; */
 `;
 
 const KindTrainee = styled.span`
