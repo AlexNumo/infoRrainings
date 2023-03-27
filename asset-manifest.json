@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/info-for-coach/static/css/main.b3eeeea7.css",
-    "main.js": "/info-for-coach/static/js/main.a4ef434c.js",
+    "main.js": "/info-for-coach/static/js/main.b2a995bb.js",
     "MainPage.js": "/info-for-coach/static/js/MainPage.57fbdd4f.chunk.js",
     "static/js/504.ff089331.chunk.js": "/info-for-coach/static/js/504.ff089331.chunk.js",
     "index.html": "/info-for-coach/index.html",
     "main.b3eeeea7.css.map": "/info-for-coach/static/css/main.b3eeeea7.css.map",
-    "main.a4ef434c.js.map": "/info-for-coach/static/js/main.a4ef434c.js.map",
+    "main.b2a995bb.js.map": "/info-for-coach/static/js/main.b2a995bb.js.map",
     "MainPage.57fbdd4f.chunk.js.map": "/info-for-coach/static/js/MainPage.57fbdd4f.chunk.js.map",
     "504.ff089331.chunk.js.map": "/info-for-coach/static/js/504.ff089331.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3eeeea7.css",
-    "static/js/main.a4ef434c.js"
+    "static/js/main.b2a995bb.js"
   ]
 }
