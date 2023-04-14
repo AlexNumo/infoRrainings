@@ -131,21 +131,26 @@ const SortingTrainee = () => {
         const dayOfWeekNextDay3 = moment().add(4, 'days').format('dddd');
         const dayOfWeekNextDay4 = moment().add(5, 'days').format('dddd');
         const dayOfWeekNextDay5 = moment().add(6, 'days').format('dddd');
+        function addThreeHours(dateString) {
+          const date = new Date(dateString);
+          date.setHours(date.getHours() + 3);
+          return date.toISOString().slice(0, 10);
+        }
 
 // ========================TODAY=============================
-        const dataClientToday0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '08:00'));
-        const dataClientToday0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '09:00'));
-        const dataClientToday1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '10:00'));
-        const dataClientToday1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '11:00'));
-        const dataClientToday1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '12:00'));
-        const dataClientToday1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '13:00'));
-        const dataClientToday1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '14:00'));
-        const dataClientToday1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '15:00'));
-        const dataClientToday1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '16:00'));
-        const dataClientToday1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '17:00'));
-        const dataClientToday1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '18:00'));
-        const dataClientToday1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '19:00'));
-        const dataClientToday2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateToday && infoDate.time === '20:00'));
+        const dataClientToday0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '08:00'));
+        const dataClientToday0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '09:00'));
+        const dataClientToday1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '10:00'));
+        const dataClientToday1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '11:00'));
+        const dataClientToday1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '12:00'));
+        const dataClientToday1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '13:00'));
+        const dataClientToday1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '14:00'));
+        const dataClientToday1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '15:00'));
+        const dataClientToday1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '16:00'));
+        const dataClientToday1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '17:00'));
+        const dataClientToday1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '18:00'));
+        const dataClientToday1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '19:00'));
+        const dataClientToday2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateToday && infoDate.time === '20:00'));
         if (dataClientToday0800.length === '') {
             return (setClientsToday0800(''));
           };
@@ -1436,19 +1441,19 @@ const SortingTrainee = () => {
             setClientsToday2000(clientBase);
         };
 // =========================NextDay================================================================================================
-        const dataClientNextDay0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '08:00'));
-        const dataClientNextDay0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '09:00'));
-        const dataClientNextDay1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '10:00'));
-        const dataClientNextDay1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '11:00'));
-        const dataClientNextDay1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '12:00'));
-        const dataClientNextDay1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '13:00'));
-        const dataClientNextDay1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '14:00'));
-        const dataClientNextDay1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '15:00'));
-        const dataClientNextDay1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '16:00'));
-        const dataClientNextDay1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '17:00'));
-        const dataClientNextDay1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '18:00'));
-        const dataClientNextDay1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '19:00'));
-        const dataClientNextDay2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay && infoDate.time === '20:00'));
+        const dataClientNextDay0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '08:00'));
+        const dataClientNextDay0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '09:00'));
+        const dataClientNextDay1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '10:00'));
+        const dataClientNextDay1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '11:00'));
+        const dataClientNextDay1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '12:00'));
+        const dataClientNextDay1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '13:00'));
+        const dataClientNextDay1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '14:00'));
+        const dataClientNextDay1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '15:00'));
+        const dataClientNextDay1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '16:00'));
+        const dataClientNextDay1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '17:00'));
+        const dataClientNextDay1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '18:00'));
+        const dataClientNextDay1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '19:00'));
+        const dataClientNextDay2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay && infoDate.time === '20:00'));
         // console.log(dataClientNextDay0900)
         if (dataClientNextDay0800.length === '') {
             return (setClientsNextDay0800(''));
@@ -1745,7 +1750,7 @@ const SortingTrainee = () => {
             const client10 = dataClientNextDay1000[9].info.find((value) => { return value.day === dayOfWeekNextDay.toLocaleLowerCase() && value.time === '10:00' && value.date.slice(0, 10) === dateNextDay; });
             const clientBase = [client1, client2, client3, client4, client5, client6, client7, client8, client9, client10]
             setClientsNextDay1000(clientBase);
-          };
+        };
           if (dataClientNextDay1100.length === '') {
             return (setClientsNextDay1100(''));
           };
@@ -2727,19 +2732,19 @@ const SortingTrainee = () => {
             setClientsNextDay2000(clientBase);
           };
 // =========================NextDayTwo================================================================================================
-        const dataClientNextDayTwo0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '08:00'));
-        const dataClientNextDayTwo0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '09:00'));
-        const dataClientNextDayTwo1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '10:00'));
-        const dataClientNextDayTwo1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '11:00'));
-        const dataClientNextDayTwo1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '12:00'));
-        const dataClientNextDayTwo1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '13:00'));
-        const dataClientNextDayTwo1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '14:00'));
-        const dataClientNextDayTwo1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '15:00'));
-        const dataClientNextDayTwo1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '16:00'));
-        const dataClientNextDayTwo1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '17:00'));
-        const dataClientNextDayTwo1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '18:00'));
-        const dataClientNextDayTwo1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '19:00'));
-        const dataClientNextDayTwo2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay1 && infoDate.time === '20:00'));
+        const dataClientNextDayTwo0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '08:00'));
+        const dataClientNextDayTwo0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '09:00'));
+        const dataClientNextDayTwo1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '10:00'));
+        const dataClientNextDayTwo1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '11:00'));
+        const dataClientNextDayTwo1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '12:00'));
+        const dataClientNextDayTwo1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '13:00'));
+        const dataClientNextDayTwo1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '14:00'));
+        const dataClientNextDayTwo1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '15:00'));
+        const dataClientNextDayTwo1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '16:00'));
+        const dataClientNextDayTwo1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '17:00'));
+        const dataClientNextDayTwo1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '18:00'));
+        const dataClientNextDayTwo1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '19:00'));
+        const dataClientNextDayTwo2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay1 && infoDate.time === '20:00'));
         if (dataClientNextDayTwo0800.length === '') {
             return (setClientsNextDayTwo0800(''));
           };
@@ -4022,19 +4027,19 @@ const SortingTrainee = () => {
             setClientsNextDayTwo2000(clientBase);
           };
 // =========================NextDayThree================================================================================================
-        const dataClientNextDayThree0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '08:00'));
-        const dataClientNextDayThree0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '09:00'));
-        const dataClientNextDayThree1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '10:00'));
-        const dataClientNextDayThree1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '11:00'));
-        const dataClientNextDayThree1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '12:00'));
-        const dataClientNextDayThree1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '13:00'));
-        const dataClientNextDayThree1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '14:00'));
-        const dataClientNextDayThree1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '15:00'));
-        const dataClientNextDayThree1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '16:00'));
-        const dataClientNextDayThree1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '17:00'));
-        const dataClientNextDayThree1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '18:00'));
-        const dataClientNextDayThree1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '19:00'));
-        const dataClientNextDayThree2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay2 && infoDate.time === '20:00'));
+        const dataClientNextDayThree0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '08:00'));
+        const dataClientNextDayThree0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '09:00'));
+        const dataClientNextDayThree1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '10:00'));
+        const dataClientNextDayThree1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '11:00'));
+        const dataClientNextDayThree1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '12:00'));
+        const dataClientNextDayThree1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '13:00'));
+        const dataClientNextDayThree1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '14:00'));
+        const dataClientNextDayThree1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '15:00'));
+        const dataClientNextDayThree1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '16:00'));
+        const dataClientNextDayThree1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '17:00'));
+        const dataClientNextDayThree1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '18:00'));
+        const dataClientNextDayThree1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '19:00'));
+        const dataClientNextDayThree2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay2 && infoDate.time === '20:00'));
         if (dataClientNextDayThree0800.length === '') {
             return (setClientsNextDayThree0800(''));
           };
@@ -5310,19 +5315,19 @@ const SortingTrainee = () => {
             setClientsNextDayThree2000(clientBase);
           };
 // =========================NextDayFour================================================================================================
-        const dataClientNextDayFour0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '08:00'));
-        const dataClientNextDayFour0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '09:00'));
-        const dataClientNextDayFour1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '10:00'));
-        const dataClientNextDayFour1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '11:00'));
-        const dataClientNextDayFour1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '12:00'));
-        const dataClientNextDayFour1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '13:00'));
-        const dataClientNextDayFour1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '14:00'));
-        const dataClientNextDayFour1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '15:00'));
-        const dataClientNextDayFour1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '16:00'));
-        const dataClientNextDayFour1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '17:00'));
-        const dataClientNextDayFour1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '18:00'));
-        const dataClientNextDayFour1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '19:00'));
-        const dataClientNextDayFour2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay3 && infoDate.time === '20:00'));
+        const dataClientNextDayFour0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '08:00'));
+        const dataClientNextDayFour0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '09:00'));
+        const dataClientNextDayFour1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '10:00'));
+        const dataClientNextDayFour1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '11:00'));
+        const dataClientNextDayFour1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '12:00'));
+        const dataClientNextDayFour1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '13:00'));
+        const dataClientNextDayFour1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '14:00'));
+        const dataClientNextDayFour1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '15:00'));
+        const dataClientNextDayFour1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '16:00'));
+        const dataClientNextDayFour1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '17:00'));
+        const dataClientNextDayFour1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '18:00'));
+        const dataClientNextDayFour1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '19:00'));
+        const dataClientNextDayFour2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay3 && infoDate.time === '20:00'));
         if (dataClientNextDayFour0800.length === '') {
             return (setClientsNextDayFour0800(''));
           };
@@ -6598,19 +6603,19 @@ const SortingTrainee = () => {
             setClientsNextDayFour2000(clientBase);
           };
 // =========================NextDayFive================================================================================================
-        const dataClientNextDayFive0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '08:00'));
-        const dataClientNextDayFive0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '09:00'));
-        const dataClientNextDayFive1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '10:00'));
-        const dataClientNextDayFive1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '11:00'));
-        const dataClientNextDayFive1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '12:00'));
-        const dataClientNextDayFive1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '13:00'));
-        const dataClientNextDayFive1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '14:00'));
-        const dataClientNextDayFive1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '15:00'));
-        const dataClientNextDayFive1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '16:00'));
-        const dataClientNextDayFive1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '17:00'));
-        const dataClientNextDayFive1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '18:00'));
-        const dataClientNextDayFive1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '19:00'));
-        const dataClientNextDayFive2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay4 && infoDate.time === '20:00'));
+        const dataClientNextDayFive0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '08:00'));
+        const dataClientNextDayFive0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '09:00'));
+        const dataClientNextDayFive1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '10:00'));
+        const dataClientNextDayFive1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '11:00'));
+        const dataClientNextDayFive1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '12:00'));
+        const dataClientNextDayFive1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '13:00'));
+        const dataClientNextDayFive1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '14:00'));
+        const dataClientNextDayFive1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '15:00'));
+        const dataClientNextDayFive1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '16:00'));
+        const dataClientNextDayFive1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '17:00'));
+        const dataClientNextDayFive1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '18:00'));
+        const dataClientNextDayFive1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '19:00'));
+        const dataClientNextDayFive2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay4 && infoDate.time === '20:00'));
         if (dataClientNextDayFive0800.length === '') {
             return (setClientsNextDayFive0800(''));
           };
@@ -7886,19 +7891,19 @@ const SortingTrainee = () => {
             setClientsNextDayFive2000(clientBase);
           };
 // =========================NextDaySix================================================================================================
-        const dataClientNextDaySix0800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '08:00'));
-        const dataClientNextDaySix0900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '09:00'));
-        const dataClientNextDaySix1000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '10:00'));
-        const dataClientNextDaySix1100 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '11:00'));
-        const dataClientNextDaySix1200 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '12:00'));
-        const dataClientNextDaySix1300 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '13:00'));
-        const dataClientNextDaySix1400 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '14:00'));
-        const dataClientNextDaySix1500 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '15:00'));
-        const dataClientNextDaySix1600 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '16:00'));
-        const dataClientNextDaySix1700 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '17:00'));
-        const dataClientNextDaySix1800 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '18:00'));
-        const dataClientNextDaySix1900 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '19:00'));
-        const dataClientNextDaySix2000 = result.filter(arr => arr.info.some(infoDate => infoDate.date.slice(0, 10) === dateNextDay5 && infoDate.time === '20:00'));
+        const dataClientNextDaySix0800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '08:00'));
+        const dataClientNextDaySix0900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '09:00'));
+        const dataClientNextDaySix1000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '10:00'));
+        const dataClientNextDaySix1100 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '11:00'));
+        const dataClientNextDaySix1200 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '12:00'));
+        const dataClientNextDaySix1300 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '13:00'));
+        const dataClientNextDaySix1400 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '14:00'));
+        const dataClientNextDaySix1500 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '15:00'));
+        const dataClientNextDaySix1600 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '16:00'));
+        const dataClientNextDaySix1700 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '17:00'));
+        const dataClientNextDaySix1800 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '18:00'));
+        const dataClientNextDaySix1900 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '19:00'));
+        const dataClientNextDaySix2000 = result.filter(arr => arr.info.some(infoDate => addThreeHours(infoDate.date) === dateNextDay5 && infoDate.time === '20:00'));
         if (dataClientNextDaySix0800.length === '') {
             return (setClientsNextDaySix0800(''));
           };
@@ -9363,7 +9368,7 @@ const SortingTrainee = () => {
   };
 
   const calculateHeight = (...clientCounts) => {
-    const baseHeight = 45; // базова висота для одного клієнта
+    const baseHeight = 38; // базова висота для одного клієнта
     const minHeight = 50; // мінімальна висота
     const maxHeight = 500; // максимальна висота
     const maxClients = Math.max(...clientCounts); // вибираємо максимальну кількість клієнтів
@@ -9371,7 +9376,7 @@ const SortingTrainee = () => {
     const cappedHeight = Math.max(minHeight, Math.min(height, maxHeight)); // обмежуємо висоту від мінімальної до максимальної
   return `${cappedHeight}px`; // додаємо "px" для встановлення висоти в CSS
 };
-
+  // console.log(clientsNextDay1100)
   return(
     <div
       // style={{ display: 'flex', flexDirection: 'column' }}
