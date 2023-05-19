@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const DayOfWeekWrapper = styled.p`
   position: sticky;
-  top: 80px;
+  top: 78px;
   height: auto;
   background-color: #ddd2c5;
   text-align: center;
@@ -25,8 +25,20 @@ const WrapperInfoTime = styled.div`
 const KindTrainee = styled.span`
   font-family: 'Times New Roman', Times, serif;
   font-weight: 400;
-  font-size: 12px;
+  border: 1px solid;
+  border-radius: 12px;
+  background-color: #cac0b5;
+  font-size: 14px;
+  margin-bottom: 3px;
+  padding: 3px;
+  text-align: center;
 `;
+
+const ShowUsersBTN = styled.button`
+  border: 1px solid;
+  border-radius: 12px;
+  background-color: #cac0b5;
+`
 
 const Clients = styled.li`
   font-family: 'Times New Roman', Times, serif;
@@ -41,6 +53,9 @@ const Clients = styled.li`
 export {
   DayOfWeekWrapper,
   WrapperInfoTime,
+  ShowUsersBTN,
   KindTrainee,
   Clients,
 }
+
+        

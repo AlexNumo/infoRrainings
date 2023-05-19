@@ -359,15 +359,25 @@ const SortingTrainee = () => {
   };
 
   const calculateHeight = (...clientCounts) => {
-    const baseHeight = 38; // базова висота для одного клієнта
-    const minHeight = 50; // мінімальна висота
-    const maxHeight = 500; // максимальна висота
+    // console.log(...clientCounts)
+    const baseHeight = 45; // базова висота для одного клієнта
+    const minHeight = 25; // мінімальна висота
+    const maxHeight = 800; // максимальна висота
     const maxClients = Math.max(...clientCounts); // вибираємо максимальну кількість клієнтів
+    if (maxClients === 1) {
+      const height = 80;
+      return `${height}px`; // додаємо "px" для встановлення висоти в CSS
+    }
+    if (maxClients === 2) {
+      const height = 120;
+      return `${height}px`; // додаємо "px" для встановлення висоти в CSS
+    }
     const height = baseHeight * maxClients; // висота в залежності від кількості клієнтів
     const cappedHeight = Math.max(minHeight, Math.min(height, maxHeight)); // обмежуємо висоту від мінімальної до максимальної
-  return `${cappedHeight}px`; // додаємо "px" для встановлення висоти в CSS
-};
-  // console.log(clientsNextDay1100)
+    return `${cappedHeight}px`; // додаємо "px" для встановлення висоти в CSS
+  };
+
+  console.log('BAD 2')
   return(
     <div
       // style={{ display: 'flex', flexDirection: 'column' }}

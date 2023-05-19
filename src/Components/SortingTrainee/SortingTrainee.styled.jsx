@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 const WrapperBTN = styled.div`
   position: sticky;
-  top: 80px;
+  top: 78px;
   height: auto;
   background-color: #ddd2c5;
   text-align: center;
-  width: 100%;
+  width: 35px;
+  height: 100%;
 `;
 
 const WrapperInfoTime = styled.div`

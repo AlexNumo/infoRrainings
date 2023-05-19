@@ -105,1588 +105,554 @@ const SortingSecondRender = ({
   nextDay3,
   nextDay4,
   nextDay5 }) => {
-  const dateOfNextDay2 = moment().add(3, 'days').format('L');
-  const dateOfNextDay3 = moment().add(4, 'days').format('L');
-  const dateOfNextDay4 = moment().add(5, 'days').format('L');
-  const dateOfNextDay5 = moment().add(6, 'days').format('L');
+  const dateOfNextDay2 = moment().add(3, 'days').format('DD.MM.YYYY');
+  const dateOfNextDay3 = moment().add(4, 'days').format('DD.MM.YYYY');
+  const dateOfNextDay4 = moment().add(5, 'days').format('DD.MM.YYYY');
+  const dateOfNextDay5 = moment().add(6, 'days').format('DD.MM.YYYY');
   // console.log(clientsToday1400);
+
+  const VisitTrainings = ({ item }) => {
+    return (
+      <>
+        {item.visitTrainee ?
+          <>
+            <HandleVisitTraineeYES item={item} />
+            <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
+              {item.name}
+            </a>
+            <HandleVisitTraineeNO item={item} />
+          </>
+          :
+          <>
+            <HandleVisitTraineeYES item={item} />
+            <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
+              {item.name}
+            </a>
+            <HandleVisitTraineeNO item={item} />
+          </>}
+      </>
+    )
+  };
+
+const ThreeDays = ({ usersToday, usersNextDay, usersNextDayTwo, usersNextDayThree, usersNextDayFour, usersNextDayFive, usersNextDaySix }) => {
+  return (
+    <>
+      <WrapperInfoTime style={{
+        height: calculateHeight(
+          usersToday.length, usersNextDay.length, usersNextDayTwo.length, usersNextDayThree.length,
+          usersNextDayFour.length, usersNextDayFive.length, usersNextDaySix.length
+        )
+      }}>
+        {/* {!showContent && <button onClick={handleClick}>Show Content</button>} */}
+        {/* {!showContent && usersToday.length > 0 ? <ShowUsersBTN onClick={handleClick}>
+          <KindTrainee>{usersToday[0].kind_trainee} <span style={{ color: '#23923f' }}>({usersToday.length})</span></KindTrainee></ShowUsersBTN> : null}
+        {showContent && (
+          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
+            {usersToday.length > 0 ? usersToday.map((item) => (
+              <Clients key={item._id} style={{ backgroundColor: '#cac0b5' }}>
+                <VisitTrainings item={item} />
+              </Clients>
+            )) : <p>-</p>}
+          </ol>
+        )} */}
+        {usersToday.length > 0 ? <KindTrainee>{usersToday[0].kind_trainee} <span style={{ color: '#23923f', fontSize: '12px' }}>({usersToday.length})</span></KindTrainee> : null}
+          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
+            {usersToday.length > 0 ? usersToday.map((item) => (
+              <Clients key={item._id} style={{ backgroundColor: '#cac0b5' }}>
+                <VisitTrainings item={item} />
+              </Clients>
+            )) : <p>-</p>}
+          </ol>
+      </WrapperInfoTime>
+    </>
+    );
+  };
+
   return(
     <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
 {/* ===========================NextDayThree=========================================== */}
       <div style={{ padding: '2px' }}>
         <DayOfWeekWrapper><span>{nextDay2}</span><br/><span>{dateOfNextDay2}</span></DayOfWeekWrapper>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0800.length, clientsNextDay0800.length, clientsNextDayTwo0800.length, clientsNextDayThree0800.length,
-            clientsNextDayFour0800.length, clientsNextDayFive0800.length, clientsNextDaySix0800.length
-          )
-        }}>
-          {clientsNextDayThree0800.length > 0 ? <KindTrainee>{clientsNextDayThree0800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree0800.length > 0 ? clientsNextDayThree0800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0900.length, clientsNextDay0900.length, clientsNextDayTwo0900.length, clientsNextDayThree0900.length,
-            clientsNextDayFour0900.length, clientsNextDayFive0900.length, clientsNextDaySix0900.length
-          )
-        }}>
-          {clientsNextDayThree0900.length > 0 ? <KindTrainee>{clientsNextDayThree0900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree0900.length > 0 ? clientsNextDayThree0900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1000.length, clientsNextDay1000.length, clientsNextDayTwo1000.length, clientsNextDayThree1000.length,
-            clientsNextDayFour1000.length, clientsNextDayFive1000.length, clientsNextDaySix1000.length
-          )
-        }}>
-          {clientsNextDayThree1000.length > 0 ? <KindTrainee>{clientsNextDayThree1000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1000.length > 0 ? clientsNextDayThree1000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1100.length, clientsNextDay1100.length, clientsNextDayTwo1100.length, clientsNextDayThree1100.length,
-            clientsNextDayFour1100.length, clientsNextDayFive1100.length, clientsNextDaySix1100.length
-          )
-        }}>
-          {clientsNextDayThree1100.length > 0 ? <KindTrainee>{clientsNextDayThree1100[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1100.length > 0 ? clientsNextDayThree1100.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1200.length, clientsNextDay1200.length, clientsNextDayTwo1200.length, clientsNextDayThree1200.length,
-            clientsNextDayFour1200.length, clientsNextDayFive1200.length, clientsNextDaySix1200.length
-          )
-        }}>
-          {clientsNextDayThree1200.length > 0 ? <KindTrainee>{clientsNextDayThree1200[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1200.length > 0 ? clientsNextDayThree1200.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1300.length, clientsNextDay1300.length, clientsNextDayTwo1300.length, clientsNextDayThree1300.length,
-            clientsNextDayFour1300.length, clientsNextDayFive1300.length, clientsNextDaySix1300.length
-          )
-        }}>
-          {clientsNextDayThree1300.length > 0 ? <KindTrainee>{clientsNextDayThree1300[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1300.length > 0 ? clientsNextDayThree1300.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1400.length, clientsNextDay1400.length, clientsNextDayTwo1400.length, clientsNextDayThree1400.length,
-            clientsNextDayFour1400.length, clientsNextDayFive1400.length, clientsNextDaySix1400.length
-          )
-        }}>
-          {clientsNextDayThree1400.length > 0 ? <KindTrainee>{clientsNextDayThree1400[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1400.length > 0 ? clientsNextDayThree1400.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1500.length, clientsNextDay1500.length, clientsNextDayTwo1500.length, clientsNextDayThree1500.length,
-            clientsNextDayFour1500.length, clientsNextDayFive1500.length, clientsNextDaySix1500.length
-          )
-        }}>
-          {clientsNextDayThree1500.length > 0 ? <KindTrainee>{clientsNextDayThree1500[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1500.length > 0 ? clientsNextDayThree1500.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1600.length, clientsNextDay1600.length, clientsNextDayTwo1600.length, clientsNextDayThree1600.length,
-            clientsNextDayFour1600.length, clientsNextDayFive1600.length, clientsNextDaySix1600.length
-          )
-        }}>
-          {clientsNextDayThree1600.length > 0 ? <KindTrainee>{clientsNextDayThree1600[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1600.length > 0 ? clientsNextDayThree1600.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1700.length, clientsNextDay1700.length, clientsNextDayTwo1700.length, clientsNextDayThree1700.length,
-            clientsNextDayFour1700.length, clientsNextDayFive1700.length, clientsNextDaySix1700.length
-          )
-        }}>
-          {clientsNextDayThree1700.length > 0 ? <KindTrainee>{clientsNextDayThree1700[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1700.length > 0 ? clientsNextDayThree1700.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1800.length, clientsNextDay1800.length, clientsNextDayTwo1800.length, clientsNextDayThree1800.length,
-            clientsNextDayFour1800.length, clientsNextDayFive1800.length, clientsNextDaySix1800.length
-          )
-        }}>
-          {clientsNextDayThree1800.length > 0 ? <KindTrainee>{clientsNextDayThree1800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1800.length > 0 ? clientsNextDayThree1800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1900.length, clientsNextDay1900.length, clientsNextDayTwo1900.length, clientsNextDayThree1900.length,
-            clientsNextDayFour1900.length, clientsNextDayFive1900.length, clientsNextDaySix1900.length
-          )
-        }}>
-          {clientsNextDayThree1900.length > 0 ? <KindTrainee>{clientsNextDayThree1900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree1900.length > 0 ? clientsNextDayThree1900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-  height: calculateHeight(
-    clientsToday2000.length, clientsNextDay2000.length, clientsNextDayTwo2000.length, clientsNextDayThree2000.length,
-    clientsNextDayFour2000.length, clientsNextDayFive2000.length, clientsNextDaySix2000.length
-  )
-}}>
-          {clientsNextDayThree2000.length > 0 ? <KindTrainee>{clientsNextDayThree2000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayThree2000.length > 0 ? clientsNextDayThree2000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
+        <ThreeDays
+          usersToday={clientsNextDayThree0800}
+          usersNextDay={clientsToday0800}
+          usersNextDayTwo={clientsNextDay0800}
+          usersNextDayThree={clientsNextDayTwo0800}
+          usersNextDayFour={clientsNextDayFour0800}
+          usersNextDayFive={clientsNextDayFive0800}
+          usersNextDaySix={clientsNextDaySix0800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree0900}
+          usersNextDay={clientsToday0900}
+          usersNextDayTwo={clientsNextDay0900}
+          usersNextDayThree={clientsNextDayTwo0900}
+          usersNextDayFour={clientsNextDayFour0900}
+          usersNextDayFive={clientsNextDayFive0900}
+          usersNextDaySix={clientsNextDaySix0900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1000}
+          usersNextDay={clientsToday1000}
+          usersNextDayTwo={clientsNextDay1000}
+          usersNextDayThree={clientsNextDayTwo1000}
+          usersNextDayFour={clientsNextDayFour1000}
+          usersNextDayFive={clientsNextDayFive1000}
+          usersNextDaySix={clientsNextDaySix1000}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1100}
+          usersNextDay={clientsToday1100}
+          usersNextDayTwo={clientsNextDay1100}
+          usersNextDayThree={clientsNextDayTwo1100}
+          usersNextDayFour={clientsNextDayFour1100}
+          usersNextDayFive={clientsNextDayFive1100}
+          usersNextDaySix={clientsNextDaySix1100}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1200}
+          usersNextDay={clientsToday1200}
+          usersNextDayTwo={clientsNextDay1200}
+          usersNextDayThree={clientsNextDayTwo1200}
+          usersNextDayFour={clientsNextDayFour1200}
+          usersNextDayFive={clientsNextDayFive1200}
+          usersNextDaySix={clientsNextDaySix1200}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1300}
+          usersNextDay={clientsToday1300}
+          usersNextDayTwo={clientsNextDay1300}
+          usersNextDayThree={clientsNextDayTwo1300}
+          usersNextDayFour={clientsNextDayFour1300}
+          usersNextDayFive={clientsNextDayFive1300}
+          usersNextDaySix={clientsNextDaySix1300}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1400}
+          usersNextDay={clientsToday1400}
+          usersNextDayTwo={clientsNextDay1400}
+          usersNextDayThree={clientsNextDayTwo1400}
+          usersNextDayFour={clientsNextDayFour1400}
+          usersNextDayFive={clientsNextDayFive1400}
+          usersNextDaySix={clientsNextDaySix1400}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1500}
+          usersNextDay={clientsToday1500}
+          usersNextDayTwo={clientsNextDay1500}
+          usersNextDayThree={clientsNextDayTwo1500}
+          usersNextDayFour={clientsNextDayFour1500}
+          usersNextDayFive={clientsNextDayFive1500}
+          usersNextDaySix={clientsNextDaySix1500}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1600}
+          usersNextDay={clientsToday1600}
+          usersNextDayTwo={clientsNextDay1600}
+          usersNextDayThree={clientsNextDayTwo1600}
+          usersNextDayFour={clientsNextDayFour1600}
+          usersNextDayFive={clientsNextDayFive1600}
+          usersNextDaySix={clientsNextDaySix1600}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1700}
+          usersNextDay={clientsToday1700}
+          usersNextDayTwo={clientsNextDay1700}
+          usersNextDayThree={clientsNextDayTwo1700}
+          usersNextDayFour={clientsNextDayFour1700}
+          usersNextDayFive={clientsNextDayFive1700}
+          usersNextDaySix={clientsNextDaySix1700}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1800}
+          usersNextDay={clientsToday1800}
+          usersNextDayTwo={clientsNextDay1800}
+          usersNextDayThree={clientsNextDayTwo1800}
+          usersNextDayFour={clientsNextDayFour1800}
+          usersNextDayFive={clientsNextDayFive1800}
+          usersNextDaySix={clientsNextDaySix1800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree1900}
+          usersNextDay={clientsToday1900}
+          usersNextDayTwo={clientsNextDay1900}
+          usersNextDayThree={clientsNextDayTwo1900}
+          usersNextDayFour={clientsNextDayFour1900}
+          usersNextDayFive={clientsNextDayFive1900}
+          usersNextDaySix={clientsNextDaySix1900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayThree2000}
+          usersNextDay={clientsToday2000}
+          usersNextDayTwo={clientsNextDay2000}
+          usersNextDayThree={clientsNextDayTwo2000}
+          usersNextDayFour={clientsNextDayFour2000}
+          usersNextDayFive={clientsNextDayFive2000}
+          usersNextDaySix={clientsNextDaySix2000}
+        />
       </div>
 {/* ===========================NextDayFour======================================================================================== */}
       <div style={{ padding: '2px' }}>
         <DayOfWeekWrapper><span>{nextDay3}</span><br/><span>{dateOfNextDay3}</span></DayOfWeekWrapper>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0800.length, clientsNextDay0800.length, clientsNextDayTwo0800.length, clientsNextDayThree0800.length,
-            clientsNextDayFour0800.length, clientsNextDayFive0800.length, clientsNextDaySix0800.length
-          )
-        }}>
-          {clientsNextDayFour0800.length > 0 ? <KindTrainee>{clientsNextDayFour0800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour0800.length > 0 ? clientsNextDayFour0800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0900.length, clientsNextDay0900.length, clientsNextDayTwo0900.length, clientsNextDayThree0900.length,
-            clientsNextDayFour0900.length, clientsNextDayFive0900.length, clientsNextDaySix0900.length
-          )
-        }}>
-          {clientsNextDayFour0900.length > 0 ? <KindTrainee>{clientsNextDayFour0900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour0900.length > 0 ? clientsNextDayFour0900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1000.length, clientsNextDay1000.length, clientsNextDayTwo1000.length, clientsNextDayThree1000.length,
-            clientsNextDayFour1000.length, clientsNextDayFive1000.length, clientsNextDaySix1000.length
-          )
-        }}>
-          {clientsNextDayFour1000.length > 0 ? <KindTrainee>{clientsNextDayFour1000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1000.length > 0 ? clientsNextDayFour1000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1100.length, clientsNextDay1100.length, clientsNextDayTwo1100.length, clientsNextDayThree1100.length,
-            clientsNextDayFour1100.length, clientsNextDayFive1100.length, clientsNextDaySix1100.length
-          )
-        }}>
-          {clientsNextDayFour1100.length > 0 ? <KindTrainee>{clientsNextDayFour1100[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1100.length > 0 ? clientsNextDayFour1100.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1200.length, clientsNextDay1200.length, clientsNextDayTwo1200.length, clientsNextDayThree1200.length,
-            clientsNextDayFour1200.length, clientsNextDayFive1200.length, clientsNextDaySix1200.length
-          )
-        }}>
-          {clientsNextDayFour1200.length > 0 ? <KindTrainee>{clientsNextDayFour1200[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1200.length > 0 ? clientsNextDayFour1200.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1300.length, clientsNextDay1300.length, clientsNextDayTwo1300.length, clientsNextDayThree1300.length,
-            clientsNextDayFour1300.length, clientsNextDayFive1300.length, clientsNextDaySix1300.length
-          )
-        }}>
-          {clientsNextDayFour1300.length > 0 ? <KindTrainee>{clientsNextDayFour1300[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1300.length > 0 ? clientsNextDayFour1300.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1400.length, clientsNextDay1400.length, clientsNextDayTwo1400.length, clientsNextDayThree1400.length,
-            clientsNextDayFour1400.length, clientsNextDayFive1400.length, clientsNextDaySix1400.length
-          )
-        }}>
-          {clientsNextDayFour1400.length > 0 ? <KindTrainee>{clientsNextDayFour1400[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1400.length > 0 ? clientsNextDayFour1400.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1500.length, clientsNextDay1500.length, clientsNextDayTwo1500.length, clientsNextDayThree1500.length,
-            clientsNextDayFour1500.length, clientsNextDayFive1500.length, clientsNextDaySix1500.length
-          )
-        }}>
-          {clientsNextDayFour1500.length > 0 ? <KindTrainee>{clientsNextDayFour1500[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1500.length > 0 ? clientsNextDayFour1500.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1600.length, clientsNextDay1600.length, clientsNextDayTwo1600.length, clientsNextDayThree1600.length,
-            clientsNextDayFour1600.length, clientsNextDayFive1600.length, clientsNextDaySix1600.length
-          )
-        }}>
-          {clientsNextDayFour1600.length > 0 ? <KindTrainee>{clientsNextDayFour1600[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1600.length > 0 ? clientsNextDayFour1600.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1700.length, clientsNextDay1700.length, clientsNextDayTwo1700.length, clientsNextDayThree1700.length,
-            clientsNextDayFour1700.length, clientsNextDayFive1700.length, clientsNextDaySix1700.length
-          )
-        }}>
-          {clientsNextDayFour1700.length > 0 ? <KindTrainee>{clientsNextDayFour1700[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1700.length > 0 ? clientsNextDayFour1700.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1800.length, clientsNextDay1800.length, clientsNextDayTwo1800.length, clientsNextDayThree1800.length,
-            clientsNextDayFour1800.length, clientsNextDayFive1800.length, clientsNextDaySix1800.length
-          )
-        }}>
-          {clientsNextDayFour1800.length > 0 ? <KindTrainee>{clientsNextDayFour1800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1800.length > 0 ? clientsNextDayFour1800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1900.length, clientsNextDay1900.length, clientsNextDayTwo1900.length, clientsNextDayThree1900.length,
-            clientsNextDayFour1900.length, clientsNextDayFive1900.length, clientsNextDaySix1900.length
-          )
-        }}>
-          {clientsNextDayFour1900.length > 0 ? <KindTrainee>{clientsNextDayFour1900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour1900.length > 0 ? clientsNextDayFour1900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-  height: calculateHeight(
-    clientsToday2000.length, clientsNextDay2000.length, clientsNextDayTwo2000.length, clientsNextDayThree2000.length,
-    clientsNextDayFour2000.length, clientsNextDayFive2000.length, clientsNextDaySix2000.length
-  )
-}}>
-          {clientsNextDayFour2000.length > 0 ? <KindTrainee>{clientsNextDayFour2000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFour2000.length > 0 ? clientsNextDayFour2000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
+        <ThreeDays
+          usersToday={clientsNextDayFour0800}
+          usersNextDay={clientsToday0800}
+          usersNextDayTwo={clientsNextDay0800}
+          usersNextDayThree={clientsNextDayTwo0800}
+          usersNextDayFour={clientsNextDayThree0800}
+          usersNextDayFive={clientsNextDayFive0800}
+          usersNextDaySix={clientsNextDaySix0800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour0900}
+          usersNextDay={clientsToday0900}
+          usersNextDayTwo={clientsNextDay0900}
+          usersNextDayThree={clientsNextDayTwo0900}
+          usersNextDayFour={clientsNextDayThree0900}
+          usersNextDayFive={clientsNextDayFive0900}
+          usersNextDaySix={clientsNextDaySix0900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1000}
+          usersNextDay={clientsToday1000}
+          usersNextDayTwo={clientsNextDay1000}
+          usersNextDayThree={clientsNextDayTwo1000}
+          usersNextDayFour={clientsNextDayThree1000}
+          usersNextDayFive={clientsNextDayFive1000}
+          usersNextDaySix={clientsNextDaySix1000}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1100}
+          usersNextDay={clientsToday1100}
+          usersNextDayTwo={clientsNextDay1100}
+          usersNextDayThree={clientsNextDayTwo1100}
+          usersNextDayFour={clientsNextDayThree1100}
+          usersNextDayFive={clientsNextDayFive1100}
+          usersNextDaySix={clientsNextDaySix1100}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1200}
+          usersNextDay={clientsToday1200}
+          usersNextDayTwo={clientsNextDay1200}
+          usersNextDayThree={clientsNextDayTwo1200}
+          usersNextDayFour={clientsNextDayThree1200}
+          usersNextDayFive={clientsNextDayFive1200}
+          usersNextDaySix={clientsNextDaySix1200}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1300}
+          usersNextDay={clientsToday1300}
+          usersNextDayTwo={clientsNextDay1300}
+          usersNextDayThree={clientsNextDayTwo1300}
+          usersNextDayFour={clientsNextDayThree1300}
+          usersNextDayFive={clientsNextDayFive1300}
+          usersNextDaySix={clientsNextDaySix1300}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1400}
+          usersNextDay={clientsToday1400}
+          usersNextDayTwo={clientsNextDay1400}
+          usersNextDayThree={clientsNextDayTwo1400}
+          usersNextDayFour={clientsNextDayThree1400}
+          usersNextDayFive={clientsNextDayFive1400}
+          usersNextDaySix={clientsNextDaySix1400}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1500}
+          usersNextDay={clientsToday1500}
+          usersNextDayTwo={clientsNextDay1500}
+          usersNextDayThree={clientsNextDayTwo1500}
+          usersNextDayFour={clientsNextDayThree1500}
+          usersNextDayFive={clientsNextDayFive1500}
+          usersNextDaySix={clientsNextDaySix1500}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1600}
+          usersNextDay={clientsToday1600}
+          usersNextDayTwo={clientsNextDay1600}
+          usersNextDayThree={clientsNextDayTwo1600}
+          usersNextDayFour={clientsNextDayThree1600}
+          usersNextDayFive={clientsNextDayFive1600}
+          usersNextDaySix={clientsNextDaySix1600}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1700}
+          usersNextDay={clientsToday1700}
+          usersNextDayTwo={clientsNextDay1700}
+          usersNextDayThree={clientsNextDayTwo1700}
+          usersNextDayFour={clientsNextDayThree1700}
+          usersNextDayFive={clientsNextDayFive1700}
+          usersNextDaySix={clientsNextDaySix1700}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1800}
+          usersNextDay={clientsToday1800}
+          usersNextDayTwo={clientsNextDay1800}
+          usersNextDayThree={clientsNextDayTwo1800}
+          usersNextDayFour={clientsNextDayThree1800}
+          usersNextDayFive={clientsNextDayFive1800}
+          usersNextDaySix={clientsNextDaySix1800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour1900}
+          usersNextDay={clientsToday1900}
+          usersNextDayTwo={clientsNextDay1900}
+          usersNextDayThree={clientsNextDayTwo1900}
+          usersNextDayFour={clientsNextDayThree1900}
+          usersNextDayFive={clientsNextDayFive1900}
+          usersNextDaySix={clientsNextDaySix1900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFour2000}
+          usersNextDay={clientsToday2000}
+          usersNextDayTwo={clientsNextDay2000}
+          usersNextDayThree={clientsNextDayTwo2000}
+          usersNextDayFour={clientsNextDayThree2000}
+          usersNextDayFive={clientsNextDayFive2000}
+          usersNextDaySix={clientsNextDaySix2000}
+        />
       </div>
 {/* ===========================NextDayFive======================================================================================== */}
       <div style={{ padding: '2px' }}>
         <DayOfWeekWrapper><span>{nextDay4}</span><br/><span>{dateOfNextDay4}</span></DayOfWeekWrapper>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0800.length, clientsNextDay0800.length, clientsNextDayTwo0800.length, clientsNextDayThree0800.length,
-            clientsNextDayFour0800.length, clientsNextDayFive0800.length, clientsNextDaySix0800.length
-          )
-        }}>
-          {clientsNextDayFive0800.length > 0 ? <KindTrainee>{clientsNextDayFive0800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive0800.length > 0 ? clientsNextDayFive0800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0900.length, clientsNextDay0900.length, clientsNextDayTwo0900.length, clientsNextDayThree0900.length,
-            clientsNextDayFour0900.length, clientsNextDayFive0900.length, clientsNextDaySix0900.length
-          )
-        }}>
-          {clientsNextDayFive0900.length > 0 ? <KindTrainee>{clientsNextDayFive0900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive0900.length > 0 ? clientsNextDayFive0900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1000.length, clientsNextDay1000.length, clientsNextDayTwo1000.length, clientsNextDayThree1000.length,
-            clientsNextDayFour1000.length, clientsNextDayFive1000.length, clientsNextDaySix1000.length
-          )
-        }}>
-          {clientsNextDayFive1000.length > 0 ? <KindTrainee>{clientsNextDayFive1000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1000.length > 0 ? clientsNextDayFive1000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1100.length, clientsNextDay1100.length, clientsNextDayTwo1100.length, clientsNextDayThree1100.length,
-            clientsNextDayFour1100.length, clientsNextDayFive1100.length, clientsNextDaySix1100.length
-          )
-        }}>
-          {clientsNextDayFive1100.length > 0 ? <KindTrainee>{clientsNextDayFive1100[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1100.length > 0 ? clientsNextDayFive1100.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1200.length, clientsNextDay1200.length, clientsNextDayTwo1200.length, clientsNextDayThree1200.length,
-            clientsNextDayFour1200.length, clientsNextDayFive1200.length, clientsNextDaySix1200.length
-          )
-        }}>
-          {clientsNextDayFive1200.length > 0 ? <KindTrainee>{clientsNextDayFive1200[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1200.length > 0 ? clientsNextDayFive1200.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1300.length, clientsNextDay1300.length, clientsNextDayTwo1300.length, clientsNextDayThree1300.length,
-            clientsNextDayFour1300.length, clientsNextDayFive1300.length, clientsNextDaySix1300.length
-          )
-        }}>
-          {clientsNextDayFive1300.length > 0 ? <KindTrainee>{clientsNextDayFive1300[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1300.length > 0 ? clientsNextDayFive1300.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1400.length, clientsNextDay1400.length, clientsNextDayTwo1400.length, clientsNextDayThree1400.length,
-            clientsNextDayFour1400.length, clientsNextDayFive1400.length, clientsNextDaySix1400.length
-          )
-        }}>
-          {clientsNextDayFive1400.length > 0 ? <KindTrainee>{clientsNextDayFive1400[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1400.length > 0 ? clientsNextDayFive1400.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1500.length, clientsNextDay1500.length, clientsNextDayTwo1500.length, clientsNextDayThree1500.length,
-            clientsNextDayFour1500.length, clientsNextDayFive1500.length, clientsNextDaySix1500.length
-          )
-        }}>
-          {clientsNextDayFive1500.length > 0 ? <KindTrainee>{clientsNextDayFive1500[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1500.length > 0 ? clientsNextDayFive1500.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1600.length, clientsNextDay1600.length, clientsNextDayTwo1600.length, clientsNextDayThree1600.length,
-            clientsNextDayFour1600.length, clientsNextDayFive1600.length, clientsNextDaySix1600.length
-          )
-        }}>
-          {clientsNextDayFive1600.length > 0 ? <KindTrainee>{clientsNextDayFive1600[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1600.length > 0 ? clientsNextDayFive1600.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1700.length, clientsNextDay1700.length, clientsNextDayTwo1700.length, clientsNextDayThree1700.length,
-            clientsNextDayFour1700.length, clientsNextDayFive1700.length, clientsNextDaySix1700.length
-          )
-        }}>
-          {clientsNextDayFive1700.length > 0 ? <KindTrainee>{clientsNextDayFive1700[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1700.length > 0 ? clientsNextDayFive1700.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1800.length, clientsNextDay1800.length, clientsNextDayTwo1800.length, clientsNextDayThree1800.length,
-            clientsNextDayFour1800.length, clientsNextDayFive1800.length, clientsNextDaySix1800.length
-          )
-        }}>
-          {clientsNextDayFive1800.length > 0 ? <KindTrainee>{clientsNextDayFive1800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1800.length > 0 ? clientsNextDayFive1800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1900.length, clientsNextDay1900.length, clientsNextDayTwo1900.length, clientsNextDayThree1900.length,
-            clientsNextDayFour1900.length, clientsNextDayFive1900.length, clientsNextDaySix1900.length
-          )
-        }}>
-          {clientsNextDayFive1900.length > 0 ? <KindTrainee>{clientsNextDayFive1900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive1900.length > 0 ? clientsNextDayFive1900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-  height: calculateHeight(
-    clientsToday2000.length, clientsNextDay2000.length, clientsNextDayTwo2000.length, clientsNextDayThree2000.length,
-    clientsNextDayFour2000.length, clientsNextDayFive2000.length, clientsNextDaySix2000.length
-  )
-}}>
-          {clientsNextDayFive2000.length > 0 ? <KindTrainee>{clientsNextDayFive2000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDayFive2000.length > 0 ? clientsNextDayFive2000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
+        <ThreeDays
+          usersToday={clientsNextDayFive0800}
+          usersNextDay={clientsToday0800}
+          usersNextDayTwo={clientsNextDay0800}
+          usersNextDayThree={clientsNextDayTwo0800}
+          usersNextDayFour={clientsNextDayThree0800}
+          usersNextDayFive={clientsNextDayFour0800}
+          usersNextDaySix={clientsNextDaySix0800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive0900}
+          usersNextDay={clientsToday0900}
+          usersNextDayTwo={clientsNextDay0900}
+          usersNextDayThree={clientsNextDayTwo0900}
+          usersNextDayFour={clientsNextDayThree0900}
+          usersNextDayFive={clientsNextDayFour0900}
+          usersNextDaySix={clientsNextDaySix0900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1000}
+          usersNextDay={clientsToday1000}
+          usersNextDayTwo={clientsNextDay1000}
+          usersNextDayThree={clientsNextDayTwo1000}
+          usersNextDayFour={clientsNextDayThree1000}
+          usersNextDayFive={clientsNextDayFour1000}
+          usersNextDaySix={clientsNextDaySix1000}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1100}
+          usersNextDay={clientsToday1100}
+          usersNextDayTwo={clientsNextDay1100}
+          usersNextDayThree={clientsNextDayTwo1100}
+          usersNextDayFour={clientsNextDayThree1100}
+          usersNextDayFive={clientsNextDayFour1100}
+          usersNextDaySix={clientsNextDaySix1100}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1200}
+          usersNextDay={clientsToday1200}
+          usersNextDayTwo={clientsNextDay1200}
+          usersNextDayThree={clientsNextDayTwo1200}
+          usersNextDayFour={clientsNextDayThree1200}
+          usersNextDayFive={clientsNextDayFour1200}
+          usersNextDaySix={clientsNextDaySix1200}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1300}
+          usersNextDay={clientsToday1300}
+          usersNextDayTwo={clientsNextDay1300}
+          usersNextDayThree={clientsNextDayTwo1300}
+          usersNextDayFour={clientsNextDayThree1300}
+          usersNextDayFive={clientsNextDayFour1300}
+          usersNextDaySix={clientsNextDaySix1300}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1400}
+          usersNextDay={clientsToday1400}
+          usersNextDayTwo={clientsNextDay1400}
+          usersNextDayThree={clientsNextDayTwo1400}
+          usersNextDayFour={clientsNextDayThree1400}
+          usersNextDayFive={clientsNextDayFour1400}
+          usersNextDaySix={clientsNextDaySix1400}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1500}
+          usersNextDay={clientsToday1500}
+          usersNextDayTwo={clientsNextDay1500}
+          usersNextDayThree={clientsNextDayTwo1500}
+          usersNextDayFour={clientsNextDayThree1500}
+          usersNextDayFive={clientsNextDayFour1500}
+          usersNextDaySix={clientsNextDaySix1500}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1600}
+          usersNextDay={clientsToday1600}
+          usersNextDayTwo={clientsNextDay1600}
+          usersNextDayThree={clientsNextDayTwo1600}
+          usersNextDayFour={clientsNextDayThree1600}
+          usersNextDayFive={clientsNextDayFour1600}
+          usersNextDaySix={clientsNextDaySix1600}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1700}
+          usersNextDay={clientsToday1700}
+          usersNextDayTwo={clientsNextDay1700}
+          usersNextDayThree={clientsNextDayTwo1700}
+          usersNextDayFour={clientsNextDayThree1700}
+          usersNextDayFive={clientsNextDayFour1700}
+          usersNextDaySix={clientsNextDaySix1700}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1800}
+          usersNextDay={clientsToday1800}
+          usersNextDayTwo={clientsNextDay1800}
+          usersNextDayThree={clientsNextDayTwo1800}
+          usersNextDayFour={clientsNextDayThree1800}
+          usersNextDayFive={clientsNextDayFour1800}
+          usersNextDaySix={clientsNextDaySix1800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive1900}
+          usersNextDay={clientsToday1900}
+          usersNextDayTwo={clientsNextDay1900}
+          usersNextDayThree={clientsNextDayTwo1900}
+          usersNextDayFour={clientsNextDayThree1900}
+          usersNextDayFive={clientsNextDayFour1900}
+          usersNextDaySix={clientsNextDaySix1900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDayFive2000}
+          usersNextDay={clientsToday2000}
+          usersNextDayTwo={clientsNextDay2000}
+          usersNextDayThree={clientsNextDayTwo2000}
+          usersNextDayFour={clientsNextDayThree2000}
+          usersNextDayFive={clientsNextDayFour2000}
+          usersNextDaySix={clientsNextDaySix2000}
+        />
       </div>
-      {/* ===========================NextDaySix======================================================================================== */}
+{/* ===========================NextDaySix======================================================================================== */}
       <div style={{ padding: '2px' }}>
         <DayOfWeekWrapper><span>{nextDay5}</span><br/><span>{dateOfNextDay5}</span></DayOfWeekWrapper>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0800.length, clientsNextDay0800.length, clientsNextDayTwo0800.length, clientsNextDayThree0800.length,
-            clientsNextDayFour0800.length, clientsNextDayFive0800.length, clientsNextDaySix0800.length
-          )
-        }}>
-          {clientsNextDaySix0800.length > 0 ? <KindTrainee>{clientsNextDaySix0800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix0800.length > 0 ? clientsNextDaySix0800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday0900.length, clientsNextDay0900.length, clientsNextDayTwo0900.length, clientsNextDayThree0900.length,
-            clientsNextDayFour0900.length, clientsNextDayFive0900.length, clientsNextDaySix0900.length
-          )
-        }}>
-          {clientsNextDaySix0900.length > 0 ? <KindTrainee>{clientsNextDaySix0900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix0900.length > 0 ? clientsNextDaySix0900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1000.length, clientsNextDay1000.length, clientsNextDayTwo1000.length, clientsNextDayThree1000.length,
-            clientsNextDayFour1000.length, clientsNextDayFive1000.length, clientsNextDaySix1000.length
-          )
-        }}>
-          {clientsNextDaySix1000.length > 0 ? <KindTrainee>{clientsNextDaySix1000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1000.length > 0 ? clientsNextDaySix1000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1100.length, clientsNextDay1100.length, clientsNextDayTwo1100.length, clientsNextDayThree1100.length,
-            clientsNextDayFour1100.length, clientsNextDayFive1100.length, clientsNextDaySix1100.length
-          )
-        }}>
-          {clientsNextDaySix1100.length > 0 ? <KindTrainee>{clientsNextDaySix1100[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1100.length > 0 ? clientsNextDaySix1100.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1200.length, clientsNextDay1200.length, clientsNextDayTwo1200.length, clientsNextDayThree1200.length,
-            clientsNextDayFour1200.length, clientsNextDayFive1200.length, clientsNextDaySix1200.length
-          )
-        }}>
-          {clientsNextDaySix1200.length > 0 ? <KindTrainee>{clientsNextDaySix1200[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1200.length > 0 ? clientsNextDaySix1200.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1300.length, clientsNextDay1300.length, clientsNextDayTwo1300.length, clientsNextDayThree1300.length,
-            clientsNextDayFour1300.length, clientsNextDayFive1300.length, clientsNextDaySix1300.length
-          )
-        }}>
-          {clientsNextDaySix1300.length > 0 ? <KindTrainee>{clientsNextDaySix1300[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1300.length > 0 ? clientsNextDaySix1300.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1400.length, clientsNextDay1400.length, clientsNextDayTwo1400.length, clientsNextDayThree1400.length,
-            clientsNextDayFour1400.length, clientsNextDayFive1400.length, clientsNextDaySix1400.length
-          )
-        }}>
-          {clientsNextDaySix1400.length > 0 ? <KindTrainee>{clientsNextDaySix1400[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1400.length > 0 ? clientsNextDaySix1400.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1500.length, clientsNextDay1500.length, clientsNextDayTwo1500.length, clientsNextDayThree1500.length,
-            clientsNextDayFour1500.length, clientsNextDayFive1500.length, clientsNextDaySix1500.length
-          )
-        }}>
-          {clientsNextDaySix1500.length > 0 ? <KindTrainee>{clientsNextDaySix1500[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1500.length > 0 ? clientsNextDaySix1500.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1600.length, clientsNextDay1600.length, clientsNextDayTwo1600.length, clientsNextDayThree1600.length,
-            clientsNextDayFour1600.length, clientsNextDayFive1600.length, clientsNextDaySix1600.length
-          )
-        }}>
-          {clientsNextDaySix1600.length > 0 ? <KindTrainee>{clientsNextDaySix1600[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1600.length > 0 ? clientsNextDaySix1600.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1700.length, clientsNextDay1700.length, clientsNextDayTwo1700.length, clientsNextDayThree1700.length,
-            clientsNextDayFour1700.length, clientsNextDayFive1700.length, clientsNextDaySix1700.length
-          )
-        }}>
-          {clientsNextDaySix1700.length > 0 ? <KindTrainee>{clientsNextDaySix1700[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1700.length > 0 ? clientsNextDaySix1700.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1800.length, clientsNextDay1800.length, clientsNextDayTwo1800.length, clientsNextDayThree1800.length,
-            clientsNextDayFour1800.length, clientsNextDayFive1800.length, clientsNextDaySix1800.length
-          )
-        }}>
-          {clientsNextDaySix1800.length > 0 ? <KindTrainee>{clientsNextDaySix1800[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1800.length > 0 ? clientsNextDaySix1800.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-          height: calculateHeight(
-            clientsToday1900.length, clientsNextDay1900.length, clientsNextDayTwo1900.length, clientsNextDayThree1900.length,
-            clientsNextDayFour1900.length, clientsNextDayFive1900.length, clientsNextDaySix1900.length
-          )
-        }}>
-          {clientsNextDaySix1900.length > 0 ? <KindTrainee>{clientsNextDaySix1900[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix1900.length > 0 ? clientsNextDaySix1900.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
-        <WrapperInfoTime  style={{
-  height: calculateHeight(
-    clientsToday2000.length, clientsNextDay2000.length, clientsNextDayTwo2000.length, clientsNextDayThree2000.length,
-    clientsNextDayFour2000.length, clientsNextDayFive2000.length, clientsNextDaySix2000.length
-  )
-}}>
-          {clientsNextDaySix2000.length > 0 ? <KindTrainee>{clientsNextDaySix2000[0].kind_trainee}</KindTrainee> : null}
-          <ol start={1} type={1} style={{ marginLeft: '10px' }}>
-            {clientsNextDaySix2000.length > 0 ? clientsNextDaySix2000.map((item) => (
-              <Clients key={item._id}>
-                {item.visitTrainee ?
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className='visitTraineeYES'>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>
-                  :
-                  <>
-                    <HandleVisitTraineeYES item={item} />
-                    <a href={URLInsta({ item })} target="_blank" rel="noopener noreferrer" id={item._id} className={item.canceledTraining ? 'visitTraineeNO' : ''}>
-                      {item.name}
-                    </a>
-                    <HandleVisitTraineeNO item={item} />
-                  </>}
-              </Clients>
-            )) : <p>-</p>}
-          </ol>
-        </WrapperInfoTime>
+        <ThreeDays
+          usersToday={clientsNextDaySix0800}
+          usersNextDay={clientsToday0800}
+          usersNextDayTwo={clientsNextDay0800}
+          usersNextDayThree={clientsNextDayTwo0800}
+          usersNextDayFour={clientsNextDayThree0800}
+          usersNextDayFive={clientsNextDayFour0800}
+          usersNextDaySix={clientsNextDayFive0800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix0900}
+          usersNextDay={clientsToday0900}
+          usersNextDayTwo={clientsNextDay0900}
+          usersNextDayThree={clientsNextDayTwo0900}
+          usersNextDayFour={clientsNextDayThree0900}
+          usersNextDayFive={clientsNextDayFour0900}
+          usersNextDaySix={clientsNextDayFive0900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1000}
+          usersNextDay={clientsToday1000}
+          usersNextDayTwo={clientsNextDay1000}
+          usersNextDayThree={clientsNextDayTwo1000}
+          usersNextDayFour={clientsNextDayThree1000}
+          usersNextDayFive={clientsNextDayFour1000}
+          usersNextDaySix={clientsNextDayFive1000}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1100}
+          usersNextDay={clientsToday1100}
+          usersNextDayTwo={clientsNextDay1100}
+          usersNextDayThree={clientsNextDayTwo1100}
+          usersNextDayFour={clientsNextDayThree1100}
+          usersNextDayFive={clientsNextDayFour1100}
+          usersNextDaySix={clientsNextDayFive1100}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1200}
+          usersNextDay={clientsToday1200}
+          usersNextDayTwo={clientsNextDay1200}
+          usersNextDayThree={clientsNextDayTwo1200}
+          usersNextDayFour={clientsNextDayThree1200}
+          usersNextDayFive={clientsNextDayFour1200}
+          usersNextDaySix={clientsNextDayFive1200}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1300}
+          usersNextDay={clientsToday1300}
+          usersNextDayTwo={clientsNextDay1300}
+          usersNextDayThree={clientsNextDayTwo1300}
+          usersNextDayFour={clientsNextDayThree1300}
+          usersNextDayFive={clientsNextDayFour1300}
+          usersNextDaySix={clientsNextDayFive1300}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1400}
+          usersNextDay={clientsToday1400}
+          usersNextDayTwo={clientsNextDay1400}
+          usersNextDayThree={clientsNextDayTwo1400}
+          usersNextDayFour={clientsNextDayThree1400}
+          usersNextDayFive={clientsNextDayFour1400}
+          usersNextDaySix={clientsNextDayFive1400}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1500}
+          usersNextDay={clientsToday1500}
+          usersNextDayTwo={clientsNextDay1500}
+          usersNextDayThree={clientsNextDayTwo1500}
+          usersNextDayFour={clientsNextDayThree1500}
+          usersNextDayFive={clientsNextDayFour1500}
+          usersNextDaySix={clientsNextDayFive1500}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1600}
+          usersNextDay={clientsToday1600}
+          usersNextDayTwo={clientsNextDay1600}
+          usersNextDayThree={clientsNextDayTwo1600}
+          usersNextDayFour={clientsNextDayThree1600}
+          usersNextDayFive={clientsNextDayFour1600}
+          usersNextDaySix={clientsNextDayFive1600}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1700}
+          usersNextDay={clientsToday1700}
+          usersNextDayTwo={clientsNextDay1700}
+          usersNextDayThree={clientsNextDayTwo1700}
+          usersNextDayFour={clientsNextDayThree1700}
+          usersNextDayFive={clientsNextDayFour1700}
+          usersNextDaySix={clientsNextDayFive1700}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1800}
+          usersNextDay={clientsToday1800}
+          usersNextDayTwo={clientsNextDay1800}
+          usersNextDayThree={clientsNextDayTwo1800}
+          usersNextDayFour={clientsNextDayThree1800}
+          usersNextDayFive={clientsNextDayFour1800}
+          usersNextDaySix={clientsNextDayFive1800}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix1900}
+          usersNextDay={clientsToday1900}
+          usersNextDayTwo={clientsNextDay1900}
+          usersNextDayThree={clientsNextDayTwo1900}
+          usersNextDayFour={clientsNextDayThree1900}
+          usersNextDayFive={clientsNextDayFour1900}
+          usersNextDaySix={clientsNextDayFive1900}
+        />
+        <ThreeDays
+          usersToday={clientsNextDaySix2000}
+          usersNextDay={clientsToday2000}
+          usersNextDayTwo={clientsNextDay2000}
+          usersNextDayThree={clientsNextDayTwo2000}
+          usersNextDayFour={clientsNextDayThree2000}
+          usersNextDayFive={clientsNextDayFour2000}
+          usersNextDaySix={clientsNextDayFive2000}
+        />
       </div>
     </div>
   )
