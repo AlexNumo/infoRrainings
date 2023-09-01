@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/info-for-coach/static/css/main.b3eeeea7.css",
-    "main.js": "/info-for-coach/static/js/main.d0f0e292.js",
-    "MainPage.js": "/info-for-coach/static/js/MainPage.19571a45.chunk.js",
-    "static/js/596.982e3868.chunk.js": "/info-for-coach/static/js/596.982e3868.chunk.js",
-    "index.html": "/info-for-coach/index.html",
-    "main.b3eeeea7.css.map": "/info-for-coach/static/css/main.b3eeeea7.css.map",
-    "main.d0f0e292.js.map": "/info-for-coach/static/js/main.d0f0e292.js.map",
-    "MainPage.19571a45.chunk.js.map": "/info-for-coach/static/js/MainPage.19571a45.chunk.js.map",
-    "596.982e3868.chunk.js.map": "/info-for-coach/static/js/596.982e3868.chunk.js.map"
+    "main.css": "/infoRrainings/static/css/main.b3eeeea7.css",
+    "main.js": "/infoRrainings/static/js/main.164358ee.js",
+    "MainPage.js": "/infoRrainings/static/js/MainPage.19571a45.chunk.js",
+    "static/js/596.982e3868.chunk.js": "/infoRrainings/static/js/596.982e3868.chunk.js",
+    "index.html": "/infoRrainings/index.html",
+    "main.b3eeeea7.css.map": "/infoRrainings/static/css/main.b3eeeea7.css.map",
+    "main.164358ee.js.map": "/infoRrainings/static/js/main.164358ee.js.map",
+    "MainPage.19571a45.chunk.js.map": "/infoRrainings/static/js/MainPage.19571a45.chunk.js.map",
+    "596.982e3868.chunk.js.map": "/infoRrainings/static/js/596.982e3868.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b3eeeea7.css",
-    "static/js/main.d0f0e292.js"
+    "static/js/main.164358ee.js"
   ]
 }
