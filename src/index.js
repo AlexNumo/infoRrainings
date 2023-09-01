@@ -10,7 +10,7 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
     <React.StrictMode>
-    <BrowserRouter basename='/info-for-coach' forceRefresh='true'>
+    <BrowserRouter basename='/infoRrainings' forceRefresh='true'>
       <GlobalStyle />
       <Provider store={store}>
         <App />
