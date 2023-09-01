@@ -12,5 +12,4 @@ const Logo = () => {
     </LogoPosition>
   )
 };
-
 export default Logo;
